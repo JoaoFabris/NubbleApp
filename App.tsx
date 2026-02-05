@@ -1,29 +1,26 @@
-import {ThemeProvider} from '@shopify/restyle';
+import { ThemeProvider } from '@shopify/restyle';
 import React, { JSX } from 'react';
-import {SafeAreaView, View} from 'react-native';
-import {Button} from './src/components/Button/Button';
+import { SafeAreaView, View } from 'react-native';
 
-import {Text} from './src/components/Text/Text';
-import {theme} from './src/theme/theme';
+import { Box } from './src/components/Box/Box';
+import { Button } from './src/components/Button/Button';
 import { Icon } from './src/components/Icon/Icon';
+
+import { Text } from './src/components/Text/Text';
+import { TextInput } from './src/components/TextInput/TextInput';
+import { theme } from './src/theme/theme';
+import { LoginScreen } from './src/screen/auth/LoginScreen/LoginScreen';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SignUpScreen } from './src/screens/auth/SignUpScreen/SignUpScreen';
 
 function App(): JSX.Element {
   return (
-    <ThemeProvider theme={theme}>
-      <SafeAreaView>
-        <View style={{paddingHorizontal: 24}}>
-          <Text preset="headingLarge" italic>
-            Coffstack
-          </Text>
-
-          <Button title="Primary" marginBottom="s12" />
-          <Button disabled title="Primary" marginBottom="s12" />
-          <Button preset="outline" title="Outline" marginBottom="s12" />
-          <Button disabled preset="outline" title="Lading" />
-        <Icon name='eyeOff' color='error' />
-        </View>
-      </SafeAreaView>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider theme={theme}>
+        <LoginScreen />
+        {/* <SignUpScreen /> */}
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
 
